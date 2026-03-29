@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create:*)",
+      "Bash(npm install:*)",
+      "Bash(pip install:*)",
+      "Bash(python seed_chroma.py)",
+      "Bash(python3 seed_chroma.py)",
+      "Bash(pip3 show:*)",
+      "Bash(pip3 install:*)",
+      "Bash(python3 -m venv venv)",
+      "Bash(source venv/bin/activate)",
+      "Bash(timeout 5 python3 -c \":*)",
+      "Bash(python3 -c \":*)",
+      "Bash(npm run:*)",
+      "Bash(chmod +x \"/Users/manasdani/Documents/Claude Hackathon 2/.claude/worktrees/keen-kepler/thriveline/start.sh\")",
+      "Bash(\"/Users/manasdani/Documents/Claude Hackathon:*)",
+      "Bash(curl -s -X POST http://localhost:8000/api/chat/stream -H \"Content-Type: application/json\" -d '{\"\"\"\"user_id\"\"\"\":\"\"\"\"test123\"\"\"\",\"\"\"\"message\"\"\"\":\"\"\"\"hi\"\"\"\",\"\"\"\"session_id\"\"\"\":\"\"\"\"sess_test\"\"\"\",\"\"\"\"mood\"\"\"\":\"\"\"\"anxious\"\"\"\"}' --max-time 10)",
+      "Bash(curl -s -X POST http://localhost:8000/api/chat/stream -H \"Content-Type: application/json\" -d '{\"\"user_id\"\":\"\"test123\"\",\"\"message\"\":\"\"Hii how are you\"\",\"\"session_id\"\":\"\"sess_test2\"\"}' --max-time 15)",
+      "Bash(curl -v -X POST http://localhost:8000/api/chat/stream -H \"Content-Type: application/json\" -d '{\"\"\"\"user_id\"\"\"\":\"\"\"\"abc123\"\"\"\",\"\"\"\"message\"\"\"\":\"\"\"\"Hii how are you\"\"\"\",\"\"\"\"session_id\"\"\"\":\"\"\"\"session_abc\"\"\"\",\"\"\"\"mood\"\"\"\":null,\"\"\"\"user_context\"\"\"\":null}' --max-time 15)",
+      "Bash(curl -v -X OPTIONS http://localhost:8000/api/chat/stream -H \"Origin: http://localhost:5173\" -H \"Access-Control-Request-Method: POST\" -H \"Access-Control-Request-Headers: content-type\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173/mindbridge_final_ui.html)",
+      "Bash(curl -s -X POST http://localhost:8000/api/chat/stream -H \"Content-Type: application/json\" -H \"Origin: http://localhost:5173\" -d '{\"\"user_id\"\":\"\"testuser\"\",\"\"message\"\":\"\"hii how are you\"\",\"\"session_id\"\":\"\"session_abc123\"\",\"\"user_context\"\":\"\"USER JOURNAL ENTRIES: User wrote on Mar 28 — \\\\\"\"test\\\\\"\": Some journal text here. Mood: Okay.\"\"}' --max-time 15)"
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+# macOS
+.DS_Store
+
+# Env / secrets
+.env
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+
+# Backend runtime data
+thriveline/backend/venv/
+thriveline/backend/__pycache__/
+thriveline/backend/chroma_data/
+thriveline/backend/thriveline.db
+
+# Frontend runtime/build
+thriveline/frontend/node_modules/
+thriveline/frontend/dist/
+
+# Temp/archives
+*.zip
+~$*.docx
+
+# Logs
+*.log

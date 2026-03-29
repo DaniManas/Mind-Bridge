@@ -1,0 +1,8 @@
+.env
+__pycache__/
+*.pyc
+*.pyo
+thriveline.db
+chroma_data/chroma.sqlite3
+venv/
+.venv/
