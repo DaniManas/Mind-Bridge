@@ -1,123 +1,104 @@
-# MindBridge (ThriveLine)
+# MindBridge
 
-MindBridge is a mental wellbeing and peer-support web app designed for people navigating stressful career transitions.
-It combines a supportive AI companion, anonymous community spaces, practical coping tools, and private journaling in one experience.
+A calm mental-health companion for people navigating stressful job search phases.
 
-## What This Project Is
+MindBridge combines:
+- `Sage AI` for supportive conversation
+- `Anonymous Community` for peer solidarity
+- `Wellbeing Tools` for immediate regulation
+- `Private Journal` for personal reflection and context-aware support
 
-MindBridge is a hackathon prototype focused on:
-- Reducing emotional friction during high-stress periods (rejection, uncertainty, burnout)
-- Creating a safe, anonymous support experience
-- Giving users immediate, actionable regulation tools (not just static advice)
-- Blending emotional support with practical structure and continuity
+## Demo Focus
 
-## Core Product Areas
+The main hackathon UI lives in:
+- `thriveline/frontend/public/mindbridge_final_ui.html`
 
-1. Landing + Onboarding
-- Calm, low-pressure intro experience
-- Character-led welcome
-- Lightweight onboarding for context (struggles, search duration, pressure factors, age band)
+This is the integrated experience used for demos.
 
-2. Sage AI (Chat)
-- Supportive AI conversation interface
-- Streaming responses (SSE)
-- Crisis keyword interception and safety response routing
-- Journal-aware context injection for personalized responses
-- Conversation history per user/session
+## Key Features
 
-3. Community
-- Peer room model (Burnout, Rejection, Anxiety, Small Wins)
-- Anonymous posting and room-based chat
-- Community pulse concept
-- Professionals tab with direct external therapist link(s)
-- Workshops tab with curated/fetched mental-health-relevant talks
-- Crisis help access from community context
+### 1) Landing + Onboarding
+- Low-pressure entry experience
+- Character-led greeting
+- Lightweight context capture (struggle type, duration, pressure factors)
 
-4. Wellbeing
-- Daily mood check-ins
-- Weekly insight + trend indicators
+### 2) Sage AI Chat
+- Streaming AI responses (SSE)
+- Journal-aware personalization
+- Crisis keyword detection + direct safety response
+- Voice input support
+
+### 3) Community
+- Peer rooms (burnout, rejection, anxiety, small wins)
+- Anonymous posting
+- Professionals section with direct therapist link
+- Workshops section with mental-health-relevant content
+
+### 4) Wellbeing
+- Daily check-ins and trend visualization
 - Micro-wins tracking
-- Progress tracker and recent state summaries
 - Interactive tools:
   - Box Breathing
   - 5-4-3-2-1 Grounding
   - Rejection Reframe
   - Evidence Jar
   - Only 3 Things Today
-- Crisis help CTA integrated in section
+- Crisis help button
 
-5. Journal
-- Private entries (text + voice dictation)
-- Mood-tagged entries
-- Save/edit/delete entries
-- Optional “use as Sage reference” behavior
-- Context bridge to improve AI continuity
+### 5) Journal
+- Text + voice journaling
+- Mood tagging
+- Past entry history
+- Optional “use as Sage reference” context bridge
 
-## Architecture Overview
+## Tech Stack
 
-- Frontend: Vite + React app plus a production-style single-file UI prototype
-- Backend: FastAPI service with chat, check-ins, resources, and history APIs
-- AI: Claude client integration for response generation and pulse/affirmation generation
-- Retrieval: Chroma-based knowledge retrieval (RAG context)
-- Persistence: SQLite for sessions/messages/check-ins; local browser storage for some UI state
+- Frontend: `HTML/CSS/JS` demo UI + `React (Vite)` app structure
+- Backend: `FastAPI`
+- AI: `Anthropic Claude` integration
+- Retrieval: `ChromaDB` (RAG context)
+- Data: `SQLite` + browser local storage
 
-## Repository Structure
+## Project Structure (Only Active Project Files)
 
 ```text
 MindBridge/
-├── CLAUDE.md
-├── PROJECT_OVERVIEW_FOR_PPT.md
-├── README.md
 └── thriveline/
-    ├── backend/
-    │   ├── main.py                 # FastAPI entrypoint + routes
-    │   ├── claude_client.py        # AI calls
-    │   ├── chroma_client.py        # RAG retrieval
-    │   ├── seed_chroma.py          # KB seeding utility
-    │   ├── database.py             # SQLite helpers
-    │   ├── history.py              # Session/context utilities
-    │   ├── crisis.py               # Safety keyword checks
-    │   ├── sentiment.py            # Sentiment classifier
-    │   ├── models.py               # Pydantic models
-    │   ├── followup.py             # Peer follow-up logic
-    │   ├── requirements.txt
-    │   ├── .env                    # local secrets/config
-    │   ├── thriveline.db
-    │   └── chroma_data/
     ├── frontend/
     │   ├── public/
-    │   │   └── mindbridge_final_ui.html  # Main demo UI used in evaluations
-    │   ├── src/                    # React app source (modular implementation)
+    │   │   └── mindbridge_final_ui.html   # Main demo UI
+    │   ├── src/                            # React implementation modules
     │   ├── package.json
-    │   ├── vite.config.js
-    │   └── index.html
-    ├── start.sh
-    └── Gaps.docx
+    │   └── vite.config.js
+    ├── backend/
+    │   ├── main.py                         # FastAPI routes
+    │   ├── claude_client.py                # AI response generation
+    │   ├── chroma_client.py                # RAG retrieval
+    │   ├── database.py                     # SQLite operations
+    │   ├── history.py                      # session + context handling
+    │   ├── crisis.py                       # safety checks
+    │   ├── sentiment.py                    # sentiment routing
+    │   ├── followup.py                     # follow-up logic
+    │   ├── models.py                       # request/response schemas
+    │   ├── seed_chroma.py                  # knowledge seeding utility
+    │   └── requirements.txt
+    └── start.sh
 ```
 
-## Which UI Is the Main Demo UI?
+## Quick Start
 
-Primary demo file:
-- `thriveline/frontend/public/mindbridge_final_ui.html`
+### Run the main UI demo
 
-This file contains the complete integrated hackathon UI flow (landing, Sage, community, wellbeing, journal).
-
-## How To Run
-
-### Option A: Run the Main Demo UI (recommended for demos)
-
-1. Open terminal:
 ```bash
 cd "/Users/manasdani/Documents/Claude Hackathon 2/MindBridge/thriveline/frontend/public"
 python3 -m http.server 5173
 ```
 
-2. Open in browser:
+Open:
 - `http://localhost:5173/mindbridge_final_ui.html`
 
-### Option B: Run Backend API (for AI + persistence features)
+### Run backend API
 
-1. Open terminal:
 ```bash
 cd "/Users/manasdani/Documents/Claude Hackathon 2/MindBridge/thriveline/backend"
 python3 -m venv venv
@@ -126,10 +107,10 @@ pip install -r requirements.txt
 uvicorn main:app --reload --port 8000
 ```
 
-2. API health check:
+Health check:
 - `http://localhost:8000/health`
 
-### Option C: Run React Frontend (dev app)
+### Run React frontend (optional dev mode)
 
 ```bash
 cd "/Users/manasdani/Documents/Claude Hackathon 2/MindBridge/thriveline/frontend"
@@ -137,9 +118,7 @@ npm install
 npm run dev
 ```
 
-If you get `vite: command not found`, run `npm install` in `frontend` first.
-
-## Backend API Surface (Current)
+## API Endpoints
 
 - `GET /health`
 - `POST /api/chat`
@@ -151,24 +130,7 @@ If you get `vite: command not found`, run `npm install` in `frontend` first.
 - `GET /api/resources`
 - `GET /api/resources/affirmation`
 
-## Safety and Trust Principles
+## Safety Note
 
-- Anonymous community interactions
-- Crisis pattern detection and direct escalation messaging
-- Clear disclaimer that Sage is AI, not a licensed therapist
-- Low-arousal language style (avoids toxic positivity)
-
-## Included Docs for Team Handoff
-
-- `PROJECT_OVERVIEW_FOR_PPT.md` — slide-ready product summary and demo narrative
-- `CLAUDE.md` — implementation notes and running updates
-- `thriveline/Gaps.docx` — hackathon requirement reference document
-
-## Current Status
-
-This repository is a demo-ready prototype with integrated UX flows and working backend endpoints.
-Some areas (provider integrations, workshop relevance ranking, moderation depth, analytics) are partially mocked or prototype-level and intended for production hardening in next iterations.
-
-## License / Usage
-
-Hackathon prototype for educational and demonstration purposes.
+MindBridge is supportive AI + peer support, not a replacement for licensed clinical care.
+If crisis/self-harm language is detected, the app routes to immediate safety messaging and helpline guidance.
